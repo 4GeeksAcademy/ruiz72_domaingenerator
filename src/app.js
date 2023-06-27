@@ -6,31 +6,26 @@ import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
 window.onload = function() {
-  //write your code here
-  let pronouns = ["the", "our"];
-  let adjectives = ["great", "big"];
-  let nouns = ["jogger", "racoon"];
+  let pronoun = ["the", "our"];
+  let adj = ["great", "big"];
+  let noun = ["jogger", "racoon"];
 
-  // Function to generate domain name combinations
-  function generateDomainNames(pronouns, adjectives, nouns) {
-    let domainNames = [];
+  let domainNames = [];
 
-    // Nested for loops to combine pronouns, adjectives, and nouns
-    for (let i = 0; i < pronouns.length; i++) {
-      for (let j = 0; j < adjectives.length; j++) {
-        for (let k = 0; k < nouns.length; k++) {
-          let domainName = pronouns[i] + adjectives[j] + nouns[k] + ".com";
-          domainNames.push(domainName);
-        }
+  for (let i = 0; i < pronoun.length; i++) {
+    for (let j = 0; j < adj.length; j++) {
+      for (let k = 0; k < noun.length; k++) {
+        let domainName = pronoun[i] + adj[j] + noun[k] + ".com";
+        domainNames.push(domainName);
       }
     }
-
-    return domainNames;
   }
 
-  // Generate domain names and print them
-  let domainNameCombinations = generateDomainNames(pronouns, adjectives, nouns);
-  domainNameCombinations.forEach((domainName) => console.log(domainName));
+  let domainList = document.getElementById("domainList");
 
-  console.log("Hello Rigo from the console!");
+  for (let i = 0; i < domainNames.length; i++) {
+    let listItem = document.createElement("li");
+    listItem.textContent = domainNames[i];
+    domainList.appendChild(listItem);
+  }
 };
